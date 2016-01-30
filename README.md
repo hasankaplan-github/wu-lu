@@ -13,4 +13,4 @@ The below line shows 'conditions' feature usage:
 	print( conditionsData.current_observation.local_time_rfc822 )
 	print( conditionsData.current_observation.temp_c )
 	
-You can take a look to 'Test.lua' file also.
+You can take a look at 'Test.lua' file also.
