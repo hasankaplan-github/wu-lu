@@ -1,0 +1,102 @@
+{
+    "Url":"http://api.wunderground.com/api"
+    , "ApiKey":"your api key"
+
+    , "WeatherLocation":"your weather location"
+    
+    , "WeatherDataFilePath":"./wu-lu/"
+    , "WeatherDataFileName":"Data"
+    , "WeatherDataFormat":"json"
+    
+     
+    , "UpdateInterval":900
+    , "UpdateOrder":["FromWeb", "FromFile"]	
+    
+    , "FeatureProperties":{
+        "wu-lu.Feature.Alerts":{
+            "Name":"alerts"
+            , "Query":"alerts"
+            , "DataKeys":"alerts query_zone"
+        }
+        , "wu-lu.Feature.Almanac":{
+            "Name":"almanac"
+            , "Query":"almanac"
+            , "DataKeys":"almanac"
+        }
+        , "wu-lu.Feature.Astronomy":{
+            "Name":"astronomy"
+            , "Query":"astronomy"
+            , "DataKeys":"sun_phase moon_phase"
+        }
+        , "wu-lu.Feature.Conditions":{
+            "Name":"conditions"
+            , "Query":"conditions"
+            , "DataKeys":"current_observation"
+        }
+         , "wu-lu.Feature.CurrentHurricane":{
+            "Name":"currenthurricane"
+            , "Query":"currenthurricane"
+            , "DataKeys":"currenthurricane"
+        }
+        , "wu-lu.Feature.Forecast":{
+            "Name":"forecast"
+            , "Query":"forecast"
+            , "DataKeys":"forecast"
+        }
+        , "wu-lu.Feature.Forecast10Day":{
+            "Name":"forecast10day"
+            , "Query":"forecast10day"
+            , "DataKeys":"forecast"
+        }
+        , "wu-lu.Feature.GeoLookup":{
+            "Name":"geolookup"
+            , "Query":"geolookup"
+            , "DataKeys":"location"
+        }
+        , "wu-lu.Feature.History":{
+            "Name":"history"
+            , "Query":"history_"
+            , "DataKeys":"history"
+        }
+        , "wu-lu.Feature.Hourly":{
+            "Name":"hourly"
+            , "Query":"hourly"
+            , "DataKeys":"hourly_forecast"
+        }
+        , "wu-lu.Feature.Hourly10Day":{
+            "Name":"hourly10day"
+            , "Query":"hourly10day"
+            , "DataKeys":"hourly_forecast"
+        }
+        , "wu-lu.Feature.Planner":{
+            "Name":"planner"
+            , "Query":"planner"
+            , "DataKeys":"trip"
+        }
+        , "wu-lu.Feature.RawTide":{
+            "Name":"rawtide"
+            , "Query":"rawtide"
+            , "DataKeys":"rawtide"
+        }
+        , "wu-lu.Feature.Satellite":{
+            "Name":"satellite"
+            , "Query":"satellite"
+            , "DataKeys":"satellite"
+        }
+        , "wu-lu.Feature.Tide":{
+            "Name":"tide"
+            , "Query":"tide"
+            , "DataKeys":"tide"
+        }
+        , "wu-lu.Feature.Webcams":{
+            "Name":"webcams"
+            , "Query":"webcams"
+            , "DataKeys":"webcams"
+        }
+        , "wu-lu.Feature.Yesterday":{
+            "Name":"yesterday"
+            , "Query":"yesterday"
+            , "DataKeys":"history"
+        }
+    }
+}
