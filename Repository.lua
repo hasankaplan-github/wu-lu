@@ -150,7 +150,7 @@ this:GetFeatureData ( featureKey, forceUpdate )
         featureData[ dataKey ] = partialData
     end
 
-    if ( #featureData < 1 )
+    if ( Utility.IsEmpty( featureData ) )
     then
         featureData = nil
     end

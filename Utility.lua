@@ -128,6 +128,26 @@ function M.SetBaseTable ( childTable, baseTable )
     setmetatable( childTable, inheritanceMt )
 end
 
+function 
+M.NumberOfItems ( table )
+    local count = 0
+    for k,v in pairs(table) do count = count + 1 end
+    
+	  return count
+end
+
+function M.IsEmpty( table )
+    local isEmpty = true
+    
+    for k, v in pairs( table ) 
+    do 
+        isEmpty = false
+        break
+    end
+	
+    return isEmpty
+end
+
 --]]
 
 ---[[ Finalization

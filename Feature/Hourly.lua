@@ -54,7 +54,7 @@ this:GetAllHourlyForecastsForDay( year, month, day, forceUpdate )
         end
     end
     
-    if ( #allHourlyForecastsForDay < 1 )
+    if ( Utility.IsEmpty( allHourlyForecastsForDay ) )
     then
         allHourlyForecastsForDay = nil
     end

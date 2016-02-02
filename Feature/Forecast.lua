@@ -49,7 +49,7 @@ this:GetAllSimpleForecastDays( forceUpdate )
     local featureData = self:GetFeatureData( forceUpdate )
     local simpleForecastDays = featureData and featureData.forecast and featureData.forecast.simpleforecast.forecastday or { }
         
-    if ( #simpleForecastDays < 1 )
+    if ( Utility.IsEmpty( simpleForecastDays ) )
     then
         simpleForecastDays = nil
     end
