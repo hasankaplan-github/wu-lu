@@ -23,42 +23,68 @@ this.FeatureKey = ( ... )
 function 
 this:GetHourlyForecast( year, month, day, hour, forceUpdate )
     local epoch = os.time{ year = year, month = month, day = day, hour = hour }
-    local retVal = nil
-    local featureData = self:GetFeatureData( forceUpdate )
+    local hourlyForecast = self:GetHourlyForecastByEpoch( epoch, forceUpdate )
     
-    for _, hourlyForecast in ipairs( featureData.hourly_forecast )
-    do    
-        if ( tonumber( hourlyForecast.FCTTIME.epoch ) == epoch )
-        then
-            retVal = hourlyForecast
-            break
-        end
+    return hourlyForecast
+end
+
+function
+this:GetHourlyForecastByOffset( offset, forceUpdate )
+    if ( offset < 0 )
+    then
+        return nil
     end
     
+    local currentDateEpoch = os.time( )
+    local hourEpoch = 60 * 60
+    local plusOffsetEpoch = currentDateEpoch + ( offset * hourEpoch )
+    local plusOffsetDate = os.date( "*t", plusOffsetEpoch )
+    local hourlyForecast = self:GetHourlyForecast( plusOffsetDate.year, plusOffsetDate.month, plusOffsetDate.day, plusOffsetDate.hour, forceUpdate )
+    
+    return hourlyForecast
+end
+
+function
+this:GetHourlyForecastByEpoch ( epoch, forceUpdate )
+    local retVal = nil
+    local featureData = self:GetFeatureData( forceUpdate )
+
+    if (featureData and featureData.hourly_forecast)
+    then
+        for _, hourlyForecast in ipairs( featureData.hourly_forecast )
+        do
+            if ( tonumber( hourlyForecast.FCTTIME.epoch ) == epoch )
+            then
+                retVal = hourlyForecast
+                break
+            end
+        end
+    end
+
     return retVal
 end
 
-function 
+function
 this:GetAllHourlyForecastsForDay( year, month, day, forceUpdate )
     local allHourlyForecastsForDay = {  }
     local featureData = self:GetFeatureData( forceUpdate )
 
     for _, hourlyForecast in ipairs( featureData.hourly_forecast )
-    do    
+    do
         if( tonumber( hourlyForecast.FCTTIME.mday ) == day
-            and tonumber( hourlyForecast.FCTTIME.mon ) == month 
+            and tonumber( hourlyForecast.FCTTIME.mon ) == month
             and tonumber( hourlyForecast.FCTTIME.year ) == year )
         then
             allHourlyForecastsForDay[ #allHourlyForecastsForDay + 1 ] = hourlyForecast
             break
         end
     end
-    
+
     if ( Utility.IsEmpty( allHourlyForecastsForDay ) )
     then
         allHourlyForecastsForDay = nil
     end
-    
+
     return allHourlyForecastsForDay
 end
 --]]

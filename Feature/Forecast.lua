@@ -44,6 +44,22 @@ this:GetSimpleForecastDay( year, month, day, forceUpdate )
     return retVal
 end
 
+function
+this:GetSimpleForecastDayByOffset( offset, forceUpdate )
+    if ( offset < 0 )
+    then
+        return nil
+    end
+    
+    local currentDateEpoch = os.time( )
+    local dayEpoch = 60 * 60 * 24
+    local plusOffsetEpoch = currentDateEpoch + ( offset * dayEpoch )
+    local plusOffsetDate = os.date( "*t", plusOffsetEpoch )
+    local simpleForecastDay = self:GetSimpleForecastDay( plusOffsetDate.year, plusOffsetDate.month, plusOffsetDate.day, forceUpdate )
+    
+    return simpleForecastDay
+end
+
 function 
 this:GetAllSimpleForecastDays( forceUpdate )
     local featureData = self:GetFeatureData( forceUpdate )
