@@ -131,18 +131,25 @@ end
 function 
 M.NumberOfItems ( table )
     local count = 0
-    for k,v in pairs(table) do count = count + 1 end
     
+    if table ~= nil 
+    then
+        for k,v in pairs(table) do count = count + 1 end
+    end
+        
 	  return count
 end
 
 function M.IsEmpty( table )
     local isEmpty = true
     
-    for k, v in pairs( table ) 
-    do 
-        isEmpty = false
-        break
+    if table ~= nil 
+    then
+        for k, v in pairs( table ) 
+        do 
+            isEmpty = false
+            break
+        end
     end
 	
     return isEmpty
