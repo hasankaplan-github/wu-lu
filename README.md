@@ -1,5 +1,5 @@
 # wu-lu
-Wunderground wrapper written in Lua.
+[Wunderground](https://www.wunderground.com) wrapper written in Lua.
 Depends on 'lua-socket' and 'json' libraries.
 
 # Usage
