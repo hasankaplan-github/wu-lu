@@ -4,7 +4,7 @@ Depends on 'lua-socket' and 'json' libraries.
 
 # Usage
 I try to make usage very simple. Just add 'require' for which wunderground feature you want to use.
-The below lines show 'conditions' feature usage:
+The lines below show 'conditions' feature usage:
 ```lua
 	local conditionsFeature = require( "wu-lu.Feature.Conditions" )
 	local conditionsData = conditionsFeature:GetFeatureData()
